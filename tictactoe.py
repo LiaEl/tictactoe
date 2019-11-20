@@ -92,17 +92,19 @@ if __name__ == '__main__':
 
         while True:
             try:
-                print("Enter the next step coordinates (x, y): ")
+                print("Enter the next step coordinates (x, y): ", end="")
                 x, y = [int(i) for i in input().split()]
 
                 if x < 0 or x > 2 or y < 0 or y > 2:
-                    raise ValueError
+                    raise ValueError(
+                        "Please, enter the two numbers in range 0 - 2."
+                    )
 
                 if the_game.board[x][y] != ' ':
-                    raise ValueError
+                    raise ValueError("Field is not empty.")
 
-            except ValueError:
-                print("Please, enter the two numbers in range 0 - 2.")
+            except ValueError as e:
+                print(e)
             else:
                 break
 
