@@ -85,11 +85,9 @@ if __name__ == '__main__':
     end_game = False
 
     player1 = Player('X')
+    the_game.print_game()
 
     while end_game != True:
-
-        the_game.print_game()
-
         while True:
             try:
                 print("Enter the next step coordinates (x, y): ", end="")
@@ -109,5 +107,6 @@ if __name__ == '__main__':
                 break
 
         the_game.make_step(player1.get_smb(), x, y)
+        the_game.print_game()
 
         end_game = the_game.is_winner(player1.get_smb())
